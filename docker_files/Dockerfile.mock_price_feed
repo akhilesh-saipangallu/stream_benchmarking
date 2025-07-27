@@ -1,0 +1,9 @@
+FROM golang:1.23.6
+
+WORKDIR /app
+
+COPY . .
+
+RUN CGO_ENABLED=0 GOOS=linux go build mock_price_feed.go
+
+ENTRYPOINT ["./mock_price_feed"]

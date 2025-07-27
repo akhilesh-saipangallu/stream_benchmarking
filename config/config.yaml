@@ -1,6 +1,6 @@
 ws_server:
     port: 8080
-    endpoint: ws://localhost:8080/ws
+    endpoint: ws://host.docker.internal:8080/ws
     writer_buffer_size: 1000
 nats:
-    url: nats://127.0.0.1:4222
+    url: nats://host.docker.internal:4222
