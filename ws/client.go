@@ -165,6 +165,9 @@ func (c *Client) SendTick(pm *datatype.PriceMessage) {
 	}
 
 	select {
+	case <-c.ctx.Done():
+		// client writer is gone; stop trying
+		// TODO: Implement unsubscribe to avoid this block getting triggered
 	case c.sendCh <- msg:
 		// messaged pushed to the channel
 	default:
